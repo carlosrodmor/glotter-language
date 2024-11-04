@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+// Estas son las variables globales de colores
+:root {
+  --primary: #000000;
+  --secondary: #6c757d;
+  --light: #f8f9fa;
+}
