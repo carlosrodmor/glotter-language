@@ -1,20 +1,17 @@
 <nav class="navbar">
     <div class="nav-container">
-        <div class="logo-container">
-            <img [src]="logoPath" alt="Logo" class="logo-image">
-        </div>
+
+        <ul class="nav-links" [class.active]="isMenuOpen">
+            <li><a class="active" (click)="redirectTo('')">Inicio</a></li>
+            <li><a (click)="redirectTo('services')">Servicios</a></li>
+            <li><a (click)="redirectTo('languages')">Idiomas</a></li>
+            <li><a (click)="redirectTo('contact')">Contacto</a></li>
+        </ul>
 
         <div class="menu-toggle" (click)="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
-
-        <ul class="nav-links" [class.active]="isMenuOpen">
-            <li><a class="active" (click)="redirectTo('')">Inicio</a></li>
-            <li><a>Servicios</a></li>
-            <li><a>Idiomas</a></li>
-            <li><a (click)="redirectTo('contact')">Contacto</a></li>
-        </ul>
     </div>
 </nav>
