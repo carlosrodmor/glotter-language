@@ -6,6 +6,7 @@ import { LanguagesComponent } from './components/languages/languages.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { MethodologyComponent } from './components/methodology/methodology.component';
+import { FadeInDirective } from '../../directives/fade-in.directive';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ import { MethodologyComponent } from './components/methodology/methodology.compo
     LanguagesComponent,
     TestimonialsComponent,
     MethodologyComponent,
+    FadeInDirective,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],

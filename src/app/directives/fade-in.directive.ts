@@ -1,46 +1,37 @@
-import { Directive, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID, Inject } from '@angular/core';
 
 @Directive({
   selector: '[appFadeIn]',
-  standalone: true
+  standalone: true,
 })
-export class FadeInDirective implements OnInit, OnDestroy {
-  private observer: IntersectionObserver;
-
-  constructor(private el: ElementRef) {
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Elemento entra en viewport
-            this.el.nativeElement.style.opacity = '1';
-            this.el.nativeElement.style.transform = 'translateY(0)';
-          } else {
-            // Elemento sale del viewport
-            this.el.nativeElement.style.opacity = '0';
-            this.el.nativeElement.style.transform = 'translateY(20px)';
-          }
-        });
-      },
-      { 
-        threshold: 0.1,
-        rootMargin: '0px'
-      }
-    );
+export class FadeInDirective implements OnInit {
+  constructor(
+    private el: ElementRef,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.el.nativeElement.style.opacity = '0';
+      this.el.nativeElement.style.transform = 'translateY(30px)';
+      this.el.nativeElement.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    }
   }
 
   ngOnInit() {
-    // Configuración inicial del elemento
-    this.el.nativeElement.style.opacity = '0';
-    this.el.nativeElement.style.transform = 'translateY(20px)';
-    this.el.nativeElement.style.transition = 'opacity 0.6s ease-in-out, transform 0.6s ease-in-out';
-    
-    // Comenzar a observar el elemento
-    this.observer.observe(this.el.nativeElement);
-  }
+    if (isPlatformBrowser(this.platformId)) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.el.nativeElement.style.opacity = '1';
+            this.el.nativeElement.style.transform = 'translateY(0)';
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
 
-  ngOnDestroy() {
-    // Limpiar el observer cuando el componente se destruye
-    this.observer.disconnect();
+      observer.observe(this.el.nativeElement);
+    }
   }
 }
