@@ -9,14 +9,16 @@
   }
 
   .testimonial-carousel {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 350px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
     gap: 2rem;
     overflow-x: auto;
     padding: 1rem;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    margin: 0 auto;
+    max-width: 1200px;
 
     &::-webkit-scrollbar {
       display: none;
