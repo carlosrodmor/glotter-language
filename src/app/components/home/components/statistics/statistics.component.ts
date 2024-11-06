@@ -37,7 +37,7 @@ export class StatisticsComponent implements OnInit {
           ref.nativeElement,
           this.statistics[index].value,
           {
-            duration: 5,
+            duration: 3,
             suffix: this.statistics[index].suffix,
             separator: ',',
             decimal: '.',
