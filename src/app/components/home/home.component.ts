@@ -39,7 +39,7 @@ export class HomeComponent {
       name: 'María García',
       location: 'Madrid, España',
       quote:
-        'El método de aprendizaje es increíblemente efectivo. ¡He mejorado mi inglés en solo 3 meses!',
+        'El método de aprendizaje es increíblemente efectivo. ¡He mejorado mi inglés en sólo 3 meses!',
       avatar: '../../../assets/avatars/uifaces-popular-image (1).jpg',
     },
     {

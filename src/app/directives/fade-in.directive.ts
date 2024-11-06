@@ -14,22 +14,26 @@ export class FadeInDirective implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.el.nativeElement.style.opacity = '0';
       this.el.nativeElement.style.transform = 'translateY(30px)';
-      this.el.nativeElement.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      this.el.nativeElement.style.transition =
+        'opacity 0.8s ease-out, transform 0.8s ease-out';
     }
   }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            this.el.nativeElement.style.opacity = '1';
-            this.el.nativeElement.style.transform = 'translateY(0)';
-          }
-        });
-      }, {
-        threshold: 0.1
-      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              this.el.nativeElement.style.opacity = '1';
+              this.el.nativeElement.style.transform = 'translateY(0)';
+            }
+          });
+        },
+        {
+          threshold: 0.3,
+        }
+      );
 
       observer.observe(this.el.nativeElement);
     }
