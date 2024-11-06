@@ -1,13 +1,26 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HeroComponent } from './components/hero/hero.component';
+import { LanguagesComponent } from './components/languages/languages.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { MethodologyComponent } from './components/methodology/methodology.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    HeroComponent,
+    StatisticsComponent,
+    LanguagesComponent,
+    TestimonialsComponent,
+    MethodologyComponent,
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
   languages = [
