@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   languages = [
@@ -16,27 +16,30 @@ export class HomeComponent {
     { name: 'Alemán', level: '75%', icon: '🇩🇪' },
     { name: 'Italiano', level: '90%', icon: '🇮🇹' },
     { name: 'Portugués', level: '80%', icon: '🇵🇹' },
-    { name: 'Japonés', level: '70%', icon: '🇯🇵' }
+    { name: 'Japonés', level: '70%', icon: '🇯🇵' },
   ];
 
   testimonials = [
     {
       name: 'María García',
       location: 'Madrid, España',
-      quote: 'El método de aprendizaje es increíblemente efectivo. ¡He mejorado mi inglés en solo 3 meses!',
-      avatar: 'maria.jpg'
+      quote:
+        'El método de aprendizaje es increíblemente efectivo. ¡He mejorado mi inglés en solo 3 meses!',
+      avatar: '../../../assets/avatars/uifaces-popular-image (1).jpg',
     },
     {
       name: 'Carlos Rodríguez',
       location: 'Barcelona, España',
-      quote: 'La práctica con hablantes nativos ha sido clave para ganar fluidez.',
-      avatar: 'carlos.jpg'
+      quote:
+        'La práctica con hablantes nativos ha sido clave para ganar fluidez.',
+      avatar: '../../../assets/avatars/uifaces-popular-image.jpg',
     },
     {
       name: 'Ana Martínez',
       location: 'Valencia, España',
-      quote: 'Los ejercicios interactivos hacen que aprender sea divertido y efectivo.',
-      avatar: 'ana.jpg'
-    }
+      quote:
+        'Los ejercicios interactivos hacen que aprender sea divertido y efectivo.',
+      avatar: '../../../assets/avatars/uifaces-popular-image (2).jpg',
+    },
   ];
 }
