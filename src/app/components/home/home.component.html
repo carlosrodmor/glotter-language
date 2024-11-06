@@ -1,8 +1,13 @@
 <main class="container">
   <section class="hero">
-    <h1>Aprende idiomas de forma natural</h1>
-    <p class="subtitle">Descubre una nueva forma de conectar con el mundo</p>
-    <button class="cta-button">Comienza gratis</button>
+    <div class="hero-content">
+      <h1>Aprende idiomas de forma natural</h1>
+      <p class="subtitle">Descubre una nueva forma de conectar con el mundo</p>
+      <button class="cta-button">Comienza gratis</button>
+    </div>
+    <div class="hero-image">
+      <img src="assets/learning-illustration.svg" alt="Aprendizaje de idiomas">
+    </div>
   </section>
 
   <section class="features">
@@ -23,6 +28,42 @@
     </div>
   </section>
 
+  <section class="statistics">
+    <div class="stat-item">
+      <span class="stat-number">50K+</span>
+      <p>Estudiantes activos</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">4.9</span>
+      <p>Calificación promedio</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">12</span>
+      <p>Idiomas disponibles</p>
+    </div>
+  </section>
+
+  <section class="methodology">
+    <h2>Nuestra metodología</h2>
+    <div class="method-grid">
+      <div class="method-card">
+        <img src="../../../assets/listen.svg" alt="Escuchar" class="method-icon">
+        <h3>Escucha</h3>
+        <p>Contenido nativo y auténtico</p>
+      </div>
+      <div class="method-card">
+        <img src="../../../assets/speak.svg" alt="Hablar" class="method-icon">
+        <h3>Habla</h3>
+        <p>Práctica con IA avanzada</p>
+      </div>
+      <div class="method-card">
+        <img src="../../../assets/write.svg" alt="Escribir" class="method-icon">
+        <h3>Escribe</h3>
+        <p>Ejercicios interactivos</p>
+      </div>
+    </div>
+  </section>
+
   <section class="languages">
     <h2>Idiomas disponibles</h2>
     <div class="language-grid">
@@ -32,6 +73,18 @@
         <div class="progress-bar">
           <div class="progress" [style.width]="lang.level"></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>Lo que dicen nuestros estudiantes</h2>
+    <div class="testimonial-carousel">
+      <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+        <img [src]="'assets/images/avatars/' + testimonial.avatar" [alt]="testimonial.name" class="avatar">
+        <p class="quote">{{testimonial.quote}}</p>
+        <p class="author">{{testimonial.name}}</p>
+        <p class="location">{{testimonial.location}}</p>
       </div>
     </div>
   </section>

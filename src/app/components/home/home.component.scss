@@ -11,9 +11,19 @@
 }
 
 .hero {
-  text-align: center;
-  padding: 6rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
   
+  .hero-image {
+    img {
+      width: 100%;
+      height: auto;
+      animation: float 6s ease-in-out infinite;
+    }
+  }
+
   h1 {
     font-size: 3.2rem;
     font-weight: 600;
@@ -200,5 +210,142 @@
   }
   100% {
     transform: translateX(100%);
+  }
+}
+
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 4rem 0;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 4rem 0;
+
+  .stat-item {
+    text-align: center;
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.methodology {
+  padding: 6rem 0;
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+  }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+
+    .method-card {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-8px);
+      }
+
+      .method-icon {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1.5rem;
+      }
+
+      h3 {
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.testimonials {
+  padding: 5rem 0;
+  background: #f8f9fa;
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+  }
+
+  .testimonial-carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 350px;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 1rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonial-card {
+      scroll-snap-align: center;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      text-align: center;
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 1.5rem;
+        object-fit: cover;
+      }
+
+      .quote {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .author {
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 0.5rem;
+      }
+
+      .location {
+        color: #666;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
