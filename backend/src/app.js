@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const helmet = require("helmet");
+const morgan = require("morgan");
 require("dotenv").config();
 
 const authRoutes = require("./routes/auth.routes");
@@ -9,15 +11,21 @@ const languageRoutes = require("./routes/language.routes");
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Middleware de seguridad y utilidades
+app.use(helmet());
+app.use(morgan("dev"));
+app.use(cors({
+  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  credentials: true
+}));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Conexión a MongoDB
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => console.log("Conectado a MongoDB"))
-  .catch((err) => console.error("Error conectando a MongoDB:", err));
+// Manejo de errores global
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: "¡Algo salió mal!" });
+});
 
 // Rutas
 app.use("/api/auth", authRoutes);
