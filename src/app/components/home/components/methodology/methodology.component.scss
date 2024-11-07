@@ -1,5 +1,5 @@
 .methodology {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
 
   h2 {
     text-align: center;
@@ -51,20 +51,31 @@
       }
     }
   }
-}
 
-@media (max-width: 768px) {
-  .methodology {
-    padding: 4rem 0;
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
 
     h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 2rem;
     }
 
     .method-grid {
+      grid-template-columns: 1fr;
       gap: 1.5rem;
-      padding: 0 1.5rem;
+
+      .method-card {
+        padding: 2rem 1.5rem;
+
+        .method-icon {
+          width: 80px;
+          height: 80px;
+        }
+
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
     }
   }
 }

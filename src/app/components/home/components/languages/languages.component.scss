@@ -1,5 +1,23 @@
 .languages {
-  padding: 5rem 0;
+  padding: 5rem 2rem;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+    
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    
+    .language-grid {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+    
+    .language-card {
+      padding: 1.5rem;
+    }
+  }
 
   h2 {
     text-align: center;
