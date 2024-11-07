@@ -127,3 +127,54 @@
     grid-template-columns: 1fr;
   }
 }
+
+.scroll-indicator {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  opacity: 0.8;
+
+  svg {
+    animation: slideRight 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-indicator {
+    display: flex;
+  }
+
+  .courses-grid,
+  .languages-grid {
+    overflow-x: auto;
+    grid-template-columns: repeat(3, 300px);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .course-card,
+    .language-card {
+      scroll-snap-align: start;
+    }
+  }
+}
