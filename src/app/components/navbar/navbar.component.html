@@ -3,10 +3,10 @@
 
         <ul class="nav-links" [class.active]="isMenuOpen">
             <li><a [class.active]="isRouteActive('')" (click)="redirectTo('')">Inicio</a></li>
-            <li><a [class.active]="isRouteActive('services')" (click)="redirectTo('services')">Servicios</a></li>
+            <li><a [class.active]="isRouteActive('courses')" (click)="redirectTo('courses')">Cursos</a></li>
             <li><a [class.active]="isRouteActive('languages')" (click)="redirectTo('languages')">Idiomas</a></li>
-            <li><a [class.active]="isRouteActive('contact')" (click)="redirectTo('contact')">Contacto</a></li>
             <li><a [class.active]="isRouteActive('about')" (click)="redirectTo('about')">Nosotros</a></li>
+            <li><a [class.active]="isRouteActive('contact')" (click)="redirectTo('contact')">Contacto</a></li>
         </ul>
 
         <div class="menu-toggle" (click)="toggleMenu()">

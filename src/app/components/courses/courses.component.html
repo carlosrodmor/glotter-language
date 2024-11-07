@@ -1,0 +1,22 @@
+<main class="courses-container">
+    <section class="courses-hero" appFadeIn>
+        <h1>Nuestros Cursos</h1>
+        <p class="subtitle">Encuentra el programa perfecto para tu nivel y objetivos</p>
+    </section>
+
+    <section class="courses-grid" appFadeIn>
+        <div class="course-card" *ngFor="let course of courses">
+            <div class="course-icon">{{course.icon}}</div>
+            <div class="course-level">{{course.level}}</div>
+            <h2>{{course.title}}</h2>
+            <p class="description">{{course.description}}</p>
+            <ul class="features">
+                <li *ngFor="let feature of course.features">{{feature}}</li>
+            </ul>
+            <div class="price">
+                <span class="amount">{{course.price}}</span>
+            </div>
+            <button class="cta-button">Inscríbete ahora</button>
+        </div>
+    </section>
+</main>

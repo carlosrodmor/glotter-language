@@ -1,0 +1,30 @@
+<main class="languages-container">
+    <section class="languages-hero" appFadeIn>
+        <h1>Nuestros Idiomas</h1>
+        <p class="subtitle">Descubre los idiomas que puedes aprender con nosotros</p>
+    </section>
+
+    <section class="languages-grid" appFadeIn>
+        <div class="language-card" *ngFor="let language of languages">
+            <div class="language-header">
+                <span class="language-icon">{{language.icon}}</span>
+                <h2>{{language.name}}</h2>
+            </div>
+            <div class="language-content">
+                <p class="description">{{language.description}}</p>
+                <div class="level-indicator">
+                    <span>Nivel máximo alcanzable</span>
+                    <div class="progress-bar">
+                        <div class="progress" [style.width]="language.level"></div>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <h3>Beneficios</h3>
+                    <ul>
+                        <li *ngFor="let benefit of language.benefits">{{benefit}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

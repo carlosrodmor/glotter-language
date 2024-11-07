@@ -7,6 +7,20 @@ export const routes: Routes = [
       import('./components/home/home.component').then((m) => m.HomeComponent),
   },
   {
+    path: 'languages',
+    loadComponent: () =>
+      import('./components/languages/languages.component').then(
+        (m) => m.LanguagesComponent
+      ),
+  },
+  {
+    path: 'courses',
+    loadComponent: () =>
+      import('./components/courses/courses.component').then(
+        (m) => m.CoursesComponent
+      ),
+  },
+  {
     path: 'contact',
     loadComponent: () =>
       import('./components/contact/contact.component').then(
